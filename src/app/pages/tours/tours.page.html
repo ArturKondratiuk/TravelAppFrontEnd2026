@@ -1,17 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Tours</ion-title>
+    <ion-title>Available Tours</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content>
 
-  <ion-button [routerLink]="['/tour-details', 1]" expand="block">
-    Open Tour Details
-  </ion-button>
-
-  <ion-button routerLink="/favorites" expand="block">
-    Go to Favorites
-  </ion-button>
+  <ion-list>
+    <ion-item *ngFor="let tour of tours" [routerLink]="['/tour-details', tour.id]">
+      <ion-label>
+        <h2>Tour #{{ tour.id }}</h2>
+        <p>{{ tour.title }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
 </ion-content>

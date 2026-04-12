@@ -1,15 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Travel App</ion-title>
+    <ion-title>Tours</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-button routerLink="/tours" expand="block">
-    Go to Tours
+
+  <ion-button [routerLink]="['/tour-details', 1]" expand="block">
+    Open Tour Details
   </ion-button>
 
   <ion-button routerLink="/favorites" expand="block">
     Go to Favorites
   </ion-button>
+
 </ion-content>

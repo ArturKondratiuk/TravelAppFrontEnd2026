@@ -1,13 +1,16 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>tour-details</ion-title>
+    <ion-title>Tour Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">tour-details</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding" *ngIf="tour">
+
+  <h2>Tour #{{ tour.id }}</h2>
+  <h3>{{ tour.title }}</h3>
+  <p>{{ tour.body }}</p>
+
+  <ion-button routerLink="/tours" expand="block">
+    Back to Tours
+  </ion-button>
 </ion-content>

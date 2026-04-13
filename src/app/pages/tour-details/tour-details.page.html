@@ -13,4 +13,13 @@
   <ion-button routerLink="/tours" expand="block">
     Back to Tours
   </ion-button>
+
+  <ion-button (click)="toggleFavorite()" expand="block">
+    {{ isFav ? 'Remove from Favorites' : 'Add to Favorites' }}
+  </ion-button>
+
+  <ion-button routerLink="/favorites" expand="block">
+    View Favorites
+  </ion-button>
+
 </ion-content>

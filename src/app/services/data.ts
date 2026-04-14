@@ -66,4 +66,13 @@ export class DataService {
     await this.ready();
     return await this._storage?.get('location');
   }
+
+  async saveBooking(booking: any) {
+    await this.ready();
+
+    const bookings = await this._storage?.get('bookings') || [];
+    bookings.push(booking);
+
+    await this._storage?.set('bookings', bookings);
+  }
 }

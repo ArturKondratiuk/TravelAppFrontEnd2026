@@ -4,14 +4,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
 
   <ion-button (click)="getLocation()" expand="block">
     Get & Save Location
-  </ion-button>
-
-  <ion-button routerLink="/favorites" expand="block">
-    Go to Favorites
   </ion-button>
 
   <ion-card *ngIf="location">
@@ -22,7 +18,40 @@
     <ion-card-content>
       <p>Latitude: {{ location.lat }}</p>
       <p>Longitude: {{ location.lng }}</p>
-      <p *ngIf="location">Location loaded from storage</p>
+      <p>Loaded from storage</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button routerLink="/favorites" expand="block">
+    Go to Favorites
+  </ion-button>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Book a Tour</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-item>
+        <ion-label position="stacked">Name</ion-label>
+        <ion-input [(ngModel)]="booking.name" name="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input [(ngModel)]="booking.email" name="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Tour ID</ion-label>
+        <ion-input [(ngModel)]="booking.tourId" name="tourId"></ion-input>
+      </ion-item>
+
+      <ion-button (click)="submitForm()" expand="block">
+        Book Now
+      </ion-button>
+
     </ion-card-content>
   </ion-card>
 

@@ -50,4 +50,12 @@ export class DataService {
   async getFavorites() {
     return await this._storage?.get('favorites') || [];
   }
+
+  async saveLocation(location: any) {
+    await this._storage?.set('location', location);
+  }
+
+  async getLocation() {
+    return await this._storage?.get('location');
+  }
 }

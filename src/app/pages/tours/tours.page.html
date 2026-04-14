@@ -6,9 +6,24 @@
 
 <ion-content>
 
+  <ion-button (click)="getLocation()" expand="block">
+    Get & Save Location
+  </ion-button>
+
   <ion-button routerLink="/favorites" expand="block">
     Go to Favorites
   </ion-button>
+
+  <ion-card *ngIf="location">
+    <ion-card-header>
+      <ion-card-title>Your Location</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Latitude: {{ location.lat }}</p>
+      <p>Longitude: {{ location.lng }}</p>
+    </ion-card-content>
+  </ion-card>
 
   <ion-list>
     <ion-item *ngFor="let tour of tours" [routerLink]="['/tour-details', tour.id]">

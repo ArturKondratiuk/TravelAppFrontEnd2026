@@ -19,6 +19,12 @@ export class DataService {
     this._storage = await this.storage.create();
   }
 
+  async ready() {
+    if (!this._storage) {
+      await this.init();
+    }
+  }
+
   getTours(): Observable<any> {
     return this.http.get('https://jsonplaceholder.typicode.com/posts');
   }
@@ -52,10 +58,12 @@ export class DataService {
   }
 
   async saveLocation(location: any) {
+    await this.ready();
     await this._storage?.set('location', location);
   }
 
   async getLocation() {
+    await this.ready();
     return await this._storage?.get('location');
   }
 }

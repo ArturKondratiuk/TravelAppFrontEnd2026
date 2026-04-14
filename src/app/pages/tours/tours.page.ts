@@ -16,6 +16,7 @@ import { Geolocation } from '@capacitor/geolocation';
 
 export class ToursPage implements OnInit {
 
+  loadedFromStorage: boolean = false;
   tours: any[] = [];
   location: any;
 
@@ -26,27 +27,32 @@ export class ToursPage implements OnInit {
       this.tours = data.slice(0, 10);
     });
 
-    this.location = await this.dataService.getLocation();
+    const savedLocation = await this.dataService.getLocation();
+
+    if (savedLocation) {
+      this.location = savedLocation;
+      this.loadedFromStorage = true;
+    }
   }
 
   async getLocation() {
-  console.log('BUTTON CLICKED');
+    console.log('BUTTON CLICKED');
 
-  navigator.geolocation.getCurrentPosition(
-    async (position) => {
-      this.location = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        this.location = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
 
-      console.log('LOCATION:', this.location);
+        console.log('LOCATION:', this.location);
 
-      await this.dataService.saveLocation(this.location);
-    },
-    (error) => {
-      console.log('ERROR:', error);
-    }
-  );
-}
+        await this.dataService.saveLocation(this.location);
+      },
+      (error) => {
+        console.log('ERROR:', error);
+      }
+    );
+  }
 
 }

@@ -22,6 +22,7 @@
     <ion-card-content>
       <p>Latitude: {{ location.lat }}</p>
       <p>Longitude: {{ location.lng }}</p>
+      <p *ngIf="location">Location loaded from storage</p>
     </ion-card-content>
   </ion-card>
 

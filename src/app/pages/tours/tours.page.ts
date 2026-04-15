@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonLabel, IonButton, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonInput, IonCol, IonRow, IonGrid, IonBadge } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonLabel, IonButton, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonInput, IonCol, IonRow, IonGrid, IonBadge } from '@ionic/angular/standalone';
 import { DataService } from '../../services/data';
 import { Geolocation } from '@capacitor/geolocation';
 
@@ -11,7 +11,7 @@ import { Geolocation } from '@capacitor/geolocation';
   templateUrl: './tours.page.html',
   styleUrls: ['./tours.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, RouterModule, IonList, IonLabel, IonButton, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonInput, IonCol, IonRow, IonGrid, IonBadge]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, RouterModule, IonLabel, IonButton, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonInput, IonCol, IonRow, IonGrid, IonBadge]
 })
 
 export class ToursPage implements OnInit {

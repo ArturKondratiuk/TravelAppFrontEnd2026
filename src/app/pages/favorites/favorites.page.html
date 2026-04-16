@@ -4,19 +4,52 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
 
-  <ion-list>
-    <ion-item *ngFor="let tour of favorites">
-      <ion-label>
-        <h2>Tour #{{ tour.id }}</h2>
-        <p>{{ tour.title }}</p>
-      </ion-label>
+  <ion-card *ngIf="favorites.length === 0" style="text-align: center; padding: 20px;">
+    <ion-card-title>No favorites yet</ion-card-title>
+    <p>Add some tours to see them here</p>
+  </ion-card>
 
-      <ion-button color="danger" (click)="remove(tour)">
-        Remove
-      </ion-button>
-    </ion-item>
-  </ion-list>
+  <ion-card *ngFor="let tour of favorites" style="margin-bottom: 20px;">
+
+    <img [src]="tour.image"
+      style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px 8px 0 0;">
+
+    <ion-card-header>
+      <ion-card-title style="font-size: 20px;">
+        Tour #{{ tour.id }}: {{ tour.customTitle }}
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-grid>
+        <ion-row>
+
+          <ion-col size="6">
+            <ion-button 
+              [routerLink]="['/tour-details', tour.id]" 
+              expand="block" 
+              fill="outline">
+              View
+            </ion-button>
+          </ion-col>
+
+          <ion-col size="6">
+            <ion-button 
+              color="danger" 
+              expand="block"
+              (click)="remove(tour)">
+              Remove
+            </ion-button>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+
+    </ion-card-content>
+
+  </ion-card>
 
 </ion-content>
